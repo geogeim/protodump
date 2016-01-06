@@ -1,3 +1,5 @@
+// Copyright (c) 2015 by Marian Geoge, Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+
 #include "google/protobuf/descriptor.h"
 #include "google/protobuf/descriptor.pb.h"
 #include "google/protobuf/descriptor_database.h"
@@ -177,10 +179,9 @@ struct descriptor
 
 
 
-/*
-	searches for a protocol buffer binary tag with number 1, and type string which ends with '.proto'
-	if found invoke the full FileDescriptorProto parser
-*/
+
+//	searches for a protocol buffer binary tag with number 1, and type string which ends with '.proto'
+//	if found invoke the full FileDescriptorProto parser
 void search_descriptors(const boost::iostreams::mapped_file_source& map, std::list<descriptor>& descriptors)
 {
 	for (const char* vptr = map.data(); vptr < map.data() + map.size(); vptr++)
